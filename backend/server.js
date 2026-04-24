@@ -5,7 +5,7 @@ import db from "./db.js";
 import jwt from "jsonwebtoken";
 import authMiddleware from "./authmiddleware.js";
 import dotenv from "dotenv";
-import nodemailer from "nodemailer";
+import nodemailer from "nodemailer"
 
 
 dotenv.config();
