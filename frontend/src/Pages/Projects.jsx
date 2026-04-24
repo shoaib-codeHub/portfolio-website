@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import ProjectCard from "../components/ProjectCard";
 import "./Project.css";
 
-const BASE_URL = "http://localhost:3000";
+const BASE_URL = import.meta.env.VITE_API_URL;
 
 const Projects = () => {
   const [projects, setProjects] = useState([]);
