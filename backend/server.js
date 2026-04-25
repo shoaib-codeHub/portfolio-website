@@ -68,12 +68,12 @@ app.post("/admin/login", async (req, res) => {
       return res.status(401).json({ message: "Invalid credentials" });
     }
 
-    // ✅ SAME SECRET
+   
     const token = jwt.sign(
       {
         id: admin.id,
         username: admin.username,
-        role: "admin"   // 🔥 ADD THIS
+        role: "admin"   
       },
       process.env.JWT_SECRET,
       { expiresIn: "1h" }
@@ -97,7 +97,7 @@ app.get("/admin/dashboard", authMiddleware, (req, res) => {
   });
 });
 
-// 🚀 CREATE PROJECT (PROTECTED)
+// 🚀 CREATE PROJECT 
 app.post("/api/projects", authMiddleware, async (req, res) => {
   try {
     const { title, description, tech_stack, github_link, live_link } = req.body;
@@ -198,9 +198,6 @@ app.post("/contact", async (req, res) => {
       },
     });
 
-    // =========================
-    // 📩 EMAIL TO YOU (ADMIN)
-    // =========================
     const adminMail = {
       from: process.env.EMAIL_USER,
       to: process.env.EMAIL_USER,
@@ -247,9 +244,7 @@ app.post("/contact", async (req, res) => {
       `,
     };
 
-    // =========================
-    // 📧 AUTO REPLY TO USER
-    // =========================
+   
     const userMail = {
       from: process.env.EMAIL_USER,
       to: sender_email,
